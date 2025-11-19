@@ -28,7 +28,18 @@ void tambahTugas(string namaTugas[], string deadline[], string prioritas[], bool
 
 // Bagian 2: Tampilkan Tugas
 void tampilkanTugas(string namaTugas[], string deadline[], string prioritas[], bool statusTugas[], int jumlahTugas) {
-    
+    cout << "\n===== DAFTAR TUGAS =====\n";
+    if (jumlahTugas == 0) {
+        cout << "Belum ada tugas.\n";
+        return;
+    }
+
+    for (int i = 0; i < jumlahTugas; i++) {
+        cout << i + 1 << ". " << namaTugas[i]
+             << " | Deadline: " << deadline[i]
+             << " | Prioritas: " << prioritas[i]
+             << " | Status: " << (statusTugas[i] ? "Selesai" : "Belum") << endl;
+    }
 }
 
 // Bagian 3: Ubah status tugas
