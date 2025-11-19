@@ -37,6 +37,24 @@ void ubahStatus(bool statusTugas[], int jumlahTugas) {
 
 // Bagian 4: Hapus tugas
 void hapusTugas(string namaTugas[], string deadline[], string prioritas[], bool statusTugas[], int &jumlahTugas) {
+    int id;
+    cout << "\nMasukkan nomor tugas yang ingin dihapus: ";
+    cin >> id;
+
+    if (id < 1 || id > jumlahTugas) {
+        cout << "Nomor tugas tidak valid!\n";
+        return;
+    }
+
+    for (int i = id - 1; i < jumlahTugas - 1; i++) {
+        namaTugas[i] = namaTugas[i + 1];
+        deadline[i] = deadline[i + 1];
+        prioritas[i] = prioritas[i + 1];
+        statusTugas[i] = statusTugas[i + 1];
+    }
+
+    jumlahTugas--;
+    cout << "Tugas berhasil dihapus!\n";
 }
 
 // Bagian 5: Fungsi Statistik & menu
