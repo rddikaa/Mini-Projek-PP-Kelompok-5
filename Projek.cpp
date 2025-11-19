@@ -1,66 +1,30 @@
 #include <iostream>
 #include <string>
-
 using namespace std;
 
-const int MAX_TUGAS = 50;
-string namaTugas[MAX_TUGAS];
-string deadline[MAX_TUGAS];
-string prioritas[MAX_TUGAS];
-bool statusTugas[MAX_TUGAS];
-int jumlahTugas = 0;
+
 
 
 // Bagian 1: Fungsi tambah tugas
-void tambahTugas() {
-    if (jumlahTugas > MAX_TUGAS){
-        cout << "Tugas Penuh" << endl;
-    }else {
-        cout << "Masukan nama tugas: ";
-        getline(cin, namaTugas[jumlahTugas]);
-        cout << "Masukan deadline tugas: ";
-        getline(cin, deadline[jumlahTugas]);
-        cout << "Masukan prioritas tugas (tinggi/sedang/rendah): ";
-        getline(cin, namaTugas[jumlahTugas]);
-
-        statusTugas[jumlahTugas] = false;
-        jumlahTugas++;
-        cout << "Tugas berhasil ditambahkan" << endl;
-    }
+void tambahTugas(string namaTugas[], string deadline[], string prioritas[], bool statusTugas[], int &jumlahTugas, int MAX_TUGAS) {
+    
 }
 
 // Bagian 2: Tampilkan Tugas
-void tampilkanTugas() {
-    if(jumlahTugas == 0){
-        cout << "Tidak ada tugas yang tersedia" << endl;
-        return;
-    }
-    cout << "\n===== DAFTAR TUGAS =====\n" << endl;
-    for (int i = 0; i < jumlahTugas; i++){
-        cout << "Tugas " << (i + 1) << endl;
-        cout << "Nama : " << namaTugas[i] << endl;
-        cout << "Deadline : " << deadline[i] << endl;
-        cout << "Prioritas : " << prioritas[i] << endl;
-        cout << "Status : ";
-        if (statusTugas[i] == true){
-            cout << "Selesai" << endl;
-        } else {
-            cout << "Belum Selesai" << endl;
-        }
-        cout << "------------------------" << endl;
-    }
+void tampilkanTugas(string namaTugas[], string deadline[], string prioritas[], bool statusTugas[], int jumlahTugas) {
+    
 }
 
 // Bagian 3: Ubah status tugas
-void ubahStatus() {
+void ubahStatus(bool statusTugas[], int jumlahTugas) {
 }
 
 // Bagian 4: Hapus tugas
-void hapusTugas() {
+void hapusTugas(string namaTugas[], string deadline[], string prioritas[], bool statusTugas[], int &jumlahTugas) {
 }
 
 // Bagian 5: Fungsi Statistik & menu
-void tampilkanStatistik() {
+void tampilkanStatistik(bool statusTugas[], int jumlahTugas) {
 }
 
 void tampilkanMenu() {
@@ -75,8 +39,45 @@ void tampilkanMenu() {
 
 // Fungsi utama
 int main(){
-    // tampilkanMenu();
-    tambahTugas();
+    int MAX_TUGAS = 50;
+
+    string namaTugas[MAX_TUGAS];
+    string deadline[MAX_TUGAS];
+    string prioritas[MAX_TUGAS];
+    bool statusTugas[MAX_TUGAS];
+    int jumlahTugas = 0;
+
+    int pilihan;
+
+    do {
+        tampilkanMenu();
+        cout << "Pilih menu (1-6): ";
+        cin >> pilihan;
+
+        switch (pilihan) {
+            case 1:
+                tambahTugas(namaTugas, deadline, prioritas, statusTugas, jumlahTugas, MAX_TUGAS);
+                break;
+            case 2:
+                tampilkanTugas(namaTugas, deadline, prioritas, statusTugas, jumlahTugas);
+                break;
+            case 3:
+                ubahStatus(statusTugas, jumlahTugas);
+                break;
+            case 4:
+                hapusTugas(namaTugas, deadline, prioritas, statusTugas, jumlahTugas);
+                break;
+            case 5:
+                tampilkanStatistik(statusTugas, jumlahTugas);
+                break;
+            case 6:
+                cout << "Keluar dari program. Sampai jumpa!\n";
+                break;
+            default:
+                cout << "Pilihan tidak valid!\n";
+        }
+
+    } while (pilihan != 6);
 
     return 0;
 }
