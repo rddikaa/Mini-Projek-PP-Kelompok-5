@@ -7,7 +7,23 @@ using namespace std;
 
 // Bagian 1: Fungsi tambah tugas
 void tambahTugas(string namaTugas[], string deadline[], string prioritas[], bool statusTugas[], int &jumlahTugas, int MAX_TUGAS) {
-    
+    if (jumlahTugas >= MAX_TUGAS) {
+        cout << "Daftar tugas sudah penuh!\n";
+        return;
+    }
+
+    cin.ignore();
+    cout << "\nMasukkan nama tugas: ";
+    getline(cin, namaTugas[jumlahTugas]);
+    cout << "Masukkan deadline (contoh: 28 Des): ";
+    getline(cin, deadline[jumlahTugas]);
+    cout << "Masukkan prioritas (Tinggi/Sedang/Rendah): ";
+    getline(cin, prioritas[jumlahTugas]);
+
+    statusTugas[jumlahTugas] = false;
+    jumlahTugas++;
+
+    cout << "Tugas berhasil ditambahkan!\n";
 }
 
 // Bagian 2: Tampilkan Tugas
