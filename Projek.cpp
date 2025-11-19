@@ -44,6 +44,18 @@ void tampilkanTugas(string namaTugas[], string deadline[], string prioritas[], b
 
 // Bagian 3: Ubah status tugas
 void ubahStatus(bool statusTugas[], int jumlahTugas) {
+    int id;
+    cout << "\nMasukkan nomor tugas yang ingin diubah statusnya: ";
+    cin >> id;
+
+    if (id < 1 || id > jumlahTugas) {
+        cout << "Nomor tugas tidak valid!\n";
+        return;
+    }
+
+    statusTugas[id - 1] = !statusTugas[id - 1];
+    cout << "Status tugas diperbarui menjadi: "
+         << (statusTugas[id - 1] ? "Selesai" : "Belum") << endl;
 }
 
 // Bagian 4: Hapus tugas
