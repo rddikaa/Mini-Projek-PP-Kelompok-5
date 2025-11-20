@@ -12,7 +12,7 @@ void tambahTugas(string namaTugas[], string deadline[], string prioritas[], bool
         return;
     }
 
-    cin.ignore();
+   cin.ignore();
     cout << "\nMasukkan nama tugas: ";
     getline(cin, namaTugas[jumlahTugas]);
     cout << "Masukkan deadline (contoh: 28 Des): ";
@@ -82,6 +82,19 @@ void hapusTugas(string namaTugas[], string deadline[], string prioritas[], bool 
 
 // Bagian 5: Fungsi Statistik & menu
 void tampilkanStatistik(bool statusTugas[], int jumlahTugas) {
+
+    int selesai = 0;
+
+    for (int i = 0; i < jumlahTugas; i++) {
+        if (statusTugas[i]){
+            selesai++;
+        }
+    }
+
+    cout << "\n===== STATISTIK TUGAS =====\n";
+    cout << "Total tugas: " << jumlahTugas << endl;
+    cout << "Tugas selesai: " << selesai << endl;
+    cout << "Tugas belum selesai: " << jumlahTugas - selesai<< endl;
 }
 
 void tampilkanMenu() {
